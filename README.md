@@ -1,4 +1,4 @@
-# Japan-Weather-App
+# Weather App
 
 A simple weather app that uses the Visual Crossing weather API to display weather information from anywhere in the world.
 
