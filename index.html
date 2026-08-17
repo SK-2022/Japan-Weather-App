@@ -12,12 +12,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
-    <div>
-      <label for="input">Location</label>
-      <input type="text" class="location-input-field" />
-      <button class="search-button">Search</button>
-    </div>
+    <section class="siderbar">
+      <div class="search-bar-container">
+        <label for="input">Location</label>
+        <input
+          type="text"
+          placeholder="Enter a town, city or country"
+          class="location-input-field"
+        />
+        <button class="search-button">What's the weather?</button>
+      </div>
+    </section>
+
+    <section class="main-display-area">
+      <div class="weather-icon">
+        <img src="#" alt="weather icon displayed here" />
+      </div>
+      <div class="weather-data-div">
+        <div class="weather-condition-container">
+          General Weather Condition:
+          <span class="weather-condition-data">Sunny</span>
+        </div>
+        <div class="temp-container">
+          Temperature: <span class="temp-data">56</span>
+        </div>
+        <div class="feels-like-container">
+          Feels like: <span class="feels-like-data">60 RIP</span>
+        </div>
+        <div class="temp-conversion-button-container">
+          <button class="temp-conversion-button">Convert to Celsius</button>
+        </div>
+      </div>
+    </section>
 
     <script src="./script.js" async defer></script>
   </body>
