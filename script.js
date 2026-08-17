@@ -4,8 +4,8 @@
 let searchButton = document.querySelector(".search-button");
 
 searchButton.addEventListener("click", async () => {
-  let locationInputField = document.querySelector(".location-input-field");
-  let locationInput = locationInputField.value;
+  const locationInputField = document.querySelector(".location-input-field");
+  const locationInput = locationInputField.value;
 
   try {
     let response = await fetch(
@@ -14,7 +14,11 @@ searchButton.addEventListener("click", async () => {
 
     let weatherAppData = await response.json();
 
-    return console.log(weatherAppData);
+      console.log(weatherAppData.currentConditions.temp);
+      console.log(weatherAppData.currentConditions.conditions);
+      console.log(weatherAppData.currentConditions.icon); // Whats this??
+      console.log(weatherAppData.currentConditions.feelslike);
+    return
   } catch (error) {
     console.log("Something broke", error);
   }
