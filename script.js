@@ -2,7 +2,13 @@
 //Ensure to rewrite this code again using 1. regular promise syntax and 2. using the throw new error feature
 import "./style.css";
 
-let searchButton = document.querySelector(".search-button");
+//Select all the relevant elements
+const weatherIconData = document.querySelector(".weather-icon-data");
+const weatherConditionData = document.querySelector(".weather-condition-data");
+const tempData = document.querySelector(".temp-data");
+const feelsLikeData = document.querySelector(".feels-like-data");
+
+const searchButton = document.querySelector(".search-button");
 
 searchButton.addEventListener("click", async () => {
   const locationInputField = document.querySelector(".location-input-field");
@@ -14,11 +20,13 @@ searchButton.addEventListener("click", async () => {
     );
 
     let weatherAppData = await response.json();
-
-    console.log(weatherAppData.currentConditions.temp);
-    console.log(weatherAppData.currentConditions.conditions);
-    console.log(weatherAppData.currentConditions.icon); // Whats this??
-    console.log(weatherAppData.currentConditions.feelslike);
+    //Line 25 is just to see the json in the console
+    console.log(weatherAppData);
+    //Display the data on the page
+    // weatherIconData.src = weatherAppData.currentConditions.icon;
+    weatherConditionData.textContent = weatherAppData.currentConditions.icon;
+    tempData.textContent = weatherAppData.currentConditions.temp;
+    feelsLikeData.textContent = weatherAppData.currentConditions.feelslike;
     return;
   } catch (error) {
     console.log("Something broke", error);

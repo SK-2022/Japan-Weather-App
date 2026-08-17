@@ -1,0 +1,41 @@
+/* Do I need to export this cause Im using modules?? */
+
+body{
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR STYLING */
+.siderbar{
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.search-bar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px  ;
+}
+
+/* MAIN DISPLAY AREA STYLING */
+.main-display-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100vw;
+    gap: 10px;
+}
+
+.weather-data-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

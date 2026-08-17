@@ -7,5 +7,5 @@ The app should display the following information;
 1. General weather status i.e sunny, rainy, cloudy etc
 2. A short sentence description of the weather
 3. The temperature
-4. wind speed
-5. A button to convert fahrenheit to celsius and vice-versa
+4. A button to convert fahrenheit to celsius and vice-versa
+5. A beautifully colored gradient on the whole of the page.A blue gradient preferred.
