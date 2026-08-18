@@ -10,8 +10,10 @@ const feelsLikeData = document.querySelector(".feels-like-data");
 
 const searchButton = document.querySelector(".search-button");
 
+// Allows global access
 let weatherAppData;
 
+// Search button logic
 searchButton.addEventListener("click", async () => {
   const locationInputField = document.querySelector(".location-input-field");
   const locationInput = locationInputField.value;
@@ -25,10 +27,17 @@ searchButton.addEventListener("click", async () => {
     //Line 25 is just to see the json in the console
     console.log(weatherAppData);
 
-    //Display the data on the page
+    //Display the svg icon corresponding to the icon identifier from the API.
+    const weatherIconId = weatherAppData.currentConditions.icon;
+    const iconUrl = `/assets/WeatherIcons/SVG/1st Set - Color/${weatherIconId}.svg`;
 
-    console.log(weatherAppData.currentConditions.icon);
-    weatherConditionData.textContent = weatherAppData.currentConditions.icon;
+    //Set the image source
+    weatherIconData.src = iconUrl;
+    weatherIconData.alt = weatherIconId;
+
+    //Display other weather data
+    weatherConditionData.textContent =
+      weatherAppData.currentConditions.conditions;
     tempData.textContent = `${weatherAppData.currentConditions.temp}°F`;
     feelsLikeData.textContent = `${weatherAppData.currentConditions.feelslike}°F`;
 
@@ -38,7 +47,7 @@ searchButton.addEventListener("click", async () => {
   }
 });
 
-//Temperature conversion button
+//Temperature conversion button logic
 const tempConversionButton = document.querySelector(".temp-conversion-button");
 
 tempConversionButton.addEventListener("click", () => {
