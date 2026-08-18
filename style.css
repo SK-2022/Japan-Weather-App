@@ -1,10 +1,58 @@
-/* Do I need to export this cause Im using modules?? */
 
+/* Use fancy gradients to create cloud like atmosphere*/
 body {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #82B7FE;
 }
 
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+body::before {
+  background: #B7E5FF;
+  top: -20%;
+  left: -20%;
+  animation: cloudOne 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  background: #5696CC;
+  bottom: -20%;
+  right: -20%;
+  animation: cloudTwo 23s ease-in-out infinite alternate;
+}
+
+@keyframes cloudOne {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(30vw, 20vh);
+  }
+}
+
+@keyframes cloudTwo {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-25vw, -15vh);
+  }
+}
 /* SIDEBAR STYLING */
 .siderbar {
   border-right: 1px solid black;
