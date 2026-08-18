@@ -7,6 +7,9 @@ const weatherIconData = document.querySelector(".weather-icon-data");
 const weatherConditionData = document.querySelector(".weather-condition-data");
 const tempData = document.querySelector(".temp-data");
 const feelsLikeData = document.querySelector(".feels-like-data");
+const weatherConditionAddress = document.querySelector(
+  ".weather-condition-address",
+);
 
 const searchButton = document.querySelector(".search-button");
 
@@ -34,6 +37,9 @@ searchButton.addEventListener("click", async () => {
     //Set the image source
     weatherIconData.src = iconUrl;
     weatherIconData.alt = weatherIconId;
+
+    //Get the address of the specified location and display it
+    weatherConditionAddress.textContent = `Current weather in ${weatherAppData.address}:`;
 
     //Display other weather data
     weatherConditionData.textContent =
