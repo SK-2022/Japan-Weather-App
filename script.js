@@ -10,25 +10,53 @@ const feelsLikeData = document.querySelector(".feels-like-data");
 
 const searchButton = document.querySelector(".search-button");
 
+let weatherAppData;
+
 searchButton.addEventListener("click", async () => {
   const locationInputField = document.querySelector(".location-input-field");
   const locationInput = locationInputField.value;
 
   try {
-    let response = await fetch(
+    const response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInput}?key=NQ7MF6XN5T5GXL6XVR4XGKF9U`,
     );
 
-    let weatherAppData = await response.json();
+    weatherAppData = await response.json();
     //Line 25 is just to see the json in the console
     console.log(weatherAppData);
+
     //Display the data on the page
-    // weatherIconData.src = weatherAppData.currentConditions.icon;
+
+    console.log(weatherAppData.currentConditions.icon);
     weatherConditionData.textContent = weatherAppData.currentConditions.icon;
-    tempData.textContent = weatherAppData.currentConditions.temp;
-    feelsLikeData.textContent = weatherAppData.currentConditions.feelslike;
+    tempData.textContent = `${weatherAppData.currentConditions.temp}°F`;
+    feelsLikeData.textContent = `${weatherAppData.currentConditions.feelslike}°F`;
+
     return;
   } catch (error) {
     console.log("Something broke", error);
+  }
+});
+
+//Temperature conversion button
+const tempConversionButton = document.querySelector(".temp-conversion-button");
+
+tempConversionButton.addEventListener("click", () => {
+  if (!weatherAppData) {
+    alert("Please search for a location first.");
+  }
+
+  if (tempData.textContent.includes("°F")) {
+    tempData.textContent =
+      (((weatherAppData.currentConditions.temp - 32) * 5) / 9).toFixed(1) +
+      "°C";
+    feelsLikeData.textContent =
+      (((weatherAppData.currentConditions.temp - 32) * 5) / 9).toFixed(1) +
+      "°C";
+    tempConversionButton.textContent = "Convert to Fahrenheit";
+  } else {
+    tempData.textContent = `${weatherAppData.currentConditions.temp}°F`;
+    feelsLikeData.textContent = `${weatherAppData.currentConditions.temp}°F`;
+    tempConversionButton.textContent = "Convert to Celsius";
   }
 });
