@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./script.js",
@@ -11,6 +12,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "assets",
+          to: "assets",
+        },
+      ],
     }),
   ],
   module: {
@@ -31,7 +40,7 @@ module.exports = {
     hot: true,
     liveReload: true,
     watchFiles: {
-      paths: ["./index.html", "./script.js", "./style.css"],
+      paths: ["./index.html", "./script.js", "./style.css", "./assets/**/*"],
       options: {
         usePolling: true,
         interval: 1000,
