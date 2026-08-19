@@ -1,11 +1,12 @@
-
 /* Use fancy gradients to create cloud like atmosphere*/
 body {
   display: flex;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-  background: #82B7FE;
+  background: #82b7fe;
+  font-family: "Nunito", "Segoe UI", Arial, sans-serif;
+  color: #f5f5f5;
 }
 
 body::before,
@@ -21,14 +22,14 @@ body::after {
 }
 
 body::before {
-  background: #B7E5FF;
+  background: #b7e5ff;
   top: -20%;
   left: -20%;
   animation: cloudOne 18s ease-in-out infinite alternate;
 }
 
 body::after {
-  background: #5696CC;
+  background: #5696cc;
   bottom: -20%;
   right: -20%;
   animation: cloudTwo 23s ease-in-out infinite alternate;
@@ -92,4 +93,45 @@ body::after {
   width: 120px;
   height: 120px;
   object-fit: contain;
+}
+
+/* Button styling */
+.temp-conversion-button,
+.search-button {
+  background: rgba(255, 255, 255, 0.35);
+  color: #0077be;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 4px 15px rgba(0, 119, 190, 0.15);
+  backdrop-filter: blur(10px);
+
+  transition: all 0.25s ease;
+}
+
+.temp-conversion-button:hover,
+.search-button:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 119, 190, 0.2);
+}
+
+.temp-conversion-button:active,
+.search-button:active {
+  transform: translateY(0);
+}
+
+.temparature-styling {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.weather-condition-address,
+.weather-condition-styling {
+  font-size: 2.5rem;
 }
