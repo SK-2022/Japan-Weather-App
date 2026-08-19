@@ -21,3 +21,5 @@ Additional features planned:
 2. Add wind speed
 
 3. Potential UI modifications to enhance user experience.
+
+4. A favicon
